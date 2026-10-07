@@ -1,3 +1,4 @@
+//проход в глубину (dfs)
 #include <iostream>
 #include <vector>
 #include <string>
