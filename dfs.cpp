@@ -27,7 +27,7 @@ private:
     int time_counter{0};
 
     
-    void dfs_rekurs(int u) {  //рекурсивная функция обхода
+    void dfs_v(int u) {  //рекурсивная функция обхода
         sost[u] = versh_sost::Discovered;
         entry_time[u] = ++time_counter;
 
@@ -39,7 +39,7 @@ private:
             if (sost[v] == versh_sost::Undiscovered) {
                 parent[v] = u;
                 cout << "  Древесное ребро: " << u << " -> " << v << "\n";
-                dfs_rekurs(v);
+                dfs_v(v);
             } 
             else if (sost[v] == versh_sost::Discovered && parent[u] != v) {
                 cout << "  Найдено обратное ребро (цикл): " << u << " -> " << v << "\n";
@@ -65,7 +65,7 @@ public:
         exit_time.assign(num_versh + 1, 0);//время выхода из вершиеы
         time_counter = 0;
 
-        dfs_rekurs(start);
+        dfs_v(start);
     }
 };
 
