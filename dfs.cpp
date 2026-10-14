@@ -27,11 +27,9 @@ private:
     int time_counter{0};
 
     
-    void dfs_v(int u) {  //рекурсивная функция обхода
+    void dfs_v(int u) {  //внутренняя функция обхода, которая рекурсивно вызывается
         sost[u] = versh_sost::Discovered;
         entry_time[u] = ++time_counter;
-
-        cout << "Вход в вершину " << u << " время " << entry_time[u] << "\n";
 
        for (int i = 0; i < smezh_spis[u].size(); ++i) {
            int v = smezh_spis[u][i].to;
@@ -58,7 +56,7 @@ public:
         }
     }
     void dfs(int start) {
-        //Неизменные характеристики графа
+        //заполнение начальных характеристик графа
         sost.assign(num_versh + 1, versh_sost::Undiscovered); //состояние каждой вершины
         parent.assign(num_versh + 1, -1);//соответствие каждой вершины к "вершине-родителю"
         entry_time.assign(num_versh + 1, 0);//время входа в вершину
