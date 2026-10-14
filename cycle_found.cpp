@@ -84,7 +84,7 @@ public:
         dfs_v(start);
     }
     
-     bool find_cycles() {
+     void find_cycles() {
         sost.assign(num_versh + 1, versh_sost::Undiscovered);
         parent.assign(num_versh + 1, -1);
         bool cycle_found = false;
@@ -95,7 +95,6 @@ public:
                 dfs_v(i);
             }
         }
-        return cycle_found;
     }
 };
 
